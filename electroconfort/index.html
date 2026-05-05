@@ -1,1 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electro Confort | Électricien Montpellier - Installation & Dépannage 24/7</title>
+    <meta name="description" content="Expert électricien à Montpellier (30km). Installation, mise aux normes NF C 15-100, domotique et dépannage d'urgence. Devis gratuit sous 24h.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
 
+    <style>
+        :root {
+            --bg-dark: #020617;
+            --bg-card: #0f172a;
+            --bg-card-alt: #1e293b;
+            --primary: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.3);
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #fbbf24;
+            --success: #10b981;
+            --header-height: 80px;
+            --radius: 12px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Boutons --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg-dark);
+            box-shadow: 0 4px 14px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px var(--primary-glow);
+            filter: brightness(1.1);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        /* --- Header --- */
+        header {
+            height: var(--header-height);
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            height: 70px;
+            background: rgba(2, 6, 23, 0.95);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        nav a:hover { color: var(--primary); opacity: 1; }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Sections --- */
+        section { padding: 100px 0; }
+        h2 { font-size: 2.25rem; text-align: center; margin-bottom: 60px; }
+        h2 span { color: var(--primary); }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            background: radial-gradient(circle at 50% -20%, #1e293b, var(--bg-dark));
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            margin-bottom: 24px;
+            background: linear-gradient(to bottom, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 48px; }
+
+        /* --- Services --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 48px 32px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255,255,255,0.03);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.2);
+            background: #161e2f;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* --- Réalisations --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .portfolio-item {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .portfolio-image-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover img {
+            filter: brightness(1);
+        }
+
+        .portfolio-content {
+            padding: 28px;
+            background: linear-gradient(180deg, var(--bg-card) 0%, #0a1120 100%);
+        }
+
+        .portfolio-content h3 {
+            color: var(--text-light);
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* --- FAQ --- */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 16px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .faq-question { padding: 24px; cursor: pointer; display: flex; justify-content: space-between; font-weight: 600; text-align: left; background: none; border: none; color: inherit; width: 100%; }
+        .faq-answer { padding: 0 24px; max-height: 0; overflow: hidden; transition: var(--transition); color: var(--text-muted); text-align: left; }
+        .faq-item.active .faq-answer { padding-bottom: 24px; max-height: 200px; }
+
+        /* --- Contact --- */
+        .contact-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; }
+        .contact-form { background: var(--bg-card); padding: 40px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.05); }
+        .input-group { margin-bottom: 24px; text-align: left; }
+        .input-group label { display: block; margin-bottom: 8px; font-size: 0.85rem; color: var(--text-muted); }
+        .input-group input, .input-group textarea, .input-group select {
+            width: 100%; padding: 14px; background: var(--bg-dark); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; outline: none; font-family: inherit;
+        }
+
+        /* --- Footer --- */
+        footer { padding: 80px 0 40px; background: #010409; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        .copyright { color: var(--text-muted); font-size: 0.85rem; margin-top: 40px; }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .mobile-toggle { display: block; }
+            nav {
+                position: fixed; top: var(--header-height); left: 0; width: 100%; background: var(--bg-dark);
+                padding: 40px; transform: translateY(-150%); transition: var(--transition);
+                z-index: 999;
+            }
+            nav.open { transform: translateY(0); }
+            nav ul { flex-direction: column; align-items: center; gap: 24px; }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container">
+            <a href="#" class="logo">ELECTRO<span>CONFORT</span></a>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#realisations">Réalisations</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact" class="btn btn-outline" style="padding: 8px 20px;">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" aria-label="Menu principal">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>L'Excellence Électrique <br><span>au Service de votre Confort</span></h1>
+                <p>Installation, dépannage et maintenance à Montpellier. Un service premium pour une infrastructure électrique sécurisée et intelligente.</p>
+                <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                    <a href="tel:0102030405" class="btn btn-primary">Appeler un expert</a>
+                    <a href="#contact" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.2);">Devis gratuit</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Expertises - 6 Cards -->
+        <section id="services">
+            <div class="container">
+                <h2>Nos <span>Expertises</span></h2>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <span class="service-icon">⚡</span>
+                        <h3>Installation & Neuf</h3>
+                        <p>Câblage complet et mise en service de vos équipements électriques.</p>
+                    </article>
+                    <article class="service-card">
+                        <span class="service-icon">🚨</span>
+                        <h3>Dépannage 24/7</h3>
+                        <p>Intervention rapide pour toutes vos pannes et urgences électriques.</p>
+                    </article>
+                    <article class="service-card">
+                        <span class="service-icon">⚖️</span>
+                        <h3>Mise aux Normes</h3>
+                        <p>Audit et rénovation selon la norme NF C 15-100 en vigueur.</p>
+                    </article>
+                    <article class="service-card">
+                        <span class="service-icon">📱</span>
+                        <h3>Domotique</h3>
+                        <p>Contrôle intelligent de l'éclairage, du chauffage et des accès.</p>
+                    </article>
+                    <article class="service-card">
+                        <span class="service-icon">🔌</span>
+                        <h3>Bornes de Recharge</h3>
+                        <p>Installation certifiée IRVE pour votre véhicule électrique.</p>
+                    </article>
+                    <article class="service-card">
+                        <span class="service-icon">🔒</span>
+                        <h3>Sécurité & Alarme</h3>
+                        <p>Systèmes de surveillance et alarmes connectées pour votre protection.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="realisations" style="background: rgba(15, 23, 42, 0.3);">
+            <div class="container">
+                <h2>Derniers <span>Chantiers</span></h2>
+                <div class="portfolio-grid">
+                    <!-- Projet 1 -->
+                    <article class="portfolio-item">
+                        <div class="portfolio-image-wrapper">
+                            <img src="https://capwebdesign.fr/wp-content/uploads/2026/05/refection-tableau-electrique-1.webp" alt="Tableau électrique">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Mise en conformité totale</h3>
+                            <p>Remplacement complet d'un ancien tableau par un système Schneider Electric avec protection foudre intégrée.</p>
+                        </div>
+                    </article>
+                    <!-- Projet 2 -->
+                    <article class="portfolio-item">
+                        <div class="portfolio-image-wrapper">
+                            <img src="https://capwebdesign.fr/wp-content/uploads/2026/05/eclairage-villa-1.webp" alt="Éclairage LED">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Éclairage Villa Architecte</h3>
+                            <p>Conception et pose de luminaires LED dimmables et rubans connectés pour une villa contemporaine.</p>
+                        </div>
+                    </article>
+                    <!-- Projet 3 -->
+                    <article class="portfolio-item">
+                        <div class="portfolio-image-wrapper">
+                            <img src="https://capwebdesign.fr/wp-content/uploads/2026/05/domotique-1.webp" alt="Domotique">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Smart Home Intégrée</h3>
+                            <p>Automatisation complète des ouvrants et du chauffage via protocole KNX pour un confort optimal.</p>
+                        </div>
+                    </article>
+                    <!-- Projet 4 -->
+                    <article class="portfolio-item">
+                        <div class="portfolio-image-wrapper">
+                            <img src="https://capwebdesign.fr/wp-content/uploads/2026/05/station-de-recharge-irve-1.webp" alt="Borne de recharge">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Station de Recharge IRVE</h3>
+                            <p>Installation d'une borne de recharge rapide en extérieur avec système de délestage automatique.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <div class="container">
+                <h2>Des <span>Réponses</span> à vos questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">Quels sont les délais pour un devis ? <span>+</span></button>
+                        <div class="faq-answer">Nous nous déplaçons sous 48h et vous recevez votre chiffrage détaillé par mail dans les 24h suivant la visite.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Intervenez-vous le week-end ? <span>+</span></button>
+                        <div class="faq-answer">Oui, nous assurons un service de dépannage d'urgence 24h/24 et 7j/7 pour les pannes totales de courant.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Vos travaux sont-ils garantis ? <span>+</span></button>
+                        <div class="faq-answer">Absolument. Toutes nos installations sont couvertes par une garantie décennale et une assurance responsabilité civile professionnelle.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Travaillez-vous avec les professionnels ? <span>+</span></button>
+                        <div class="faq-answer">Oui, nous accompagnons les commerces, bureaux et copropriétés pour leurs travaux de maintenance, éclairage et mise aux normes.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Quels sont vos moyens de paiement acceptés ? <span>+</span></button>
+                        <div class="faq-answer">Nous acceptons les règlements par carte bancaire, virement immédiat et chèque. Pour les gros chantiers, nous proposons des facilités de paiement.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div style="text-align: left;">
+                        <h2>Parlons de <span>votre projet</span></h2>
+                        <p style="color: var(--text-muted); margin-bottom: 30px;">Besoin d'une étude personnalisée ou d'une intervention immédiate ? Notre équipe est à votre écoute.</p>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 15px;">📍 Montpellier & Zone 30km</li>
+                            <li style="margin-bottom: 15px;">📞 01 02 03 04 05</li>
+                            <li>✉️ contact@electro-confort.fr</li>
+                        </ul>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contact-form">
+                            <div class="input-group">
+                                <label>Nom</label>
+                                <input type="text" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Email</label>
+                                <input type="email" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Message</label>
+                                <textarea rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer mon message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="logo">ELECTRO<span>CONFORT</span></div>
+            <p style="margin-top: 15px; color: var(--text-muted);">Artisan Électricien Qualifié à Montpellier</p>
+            <p class="copyright">© 2024 Electro Confort. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle Menu
+        const mobileBtn = document.querySelector('.mobile-toggle');
+        const nav = document.querySelector('#main-nav');
+        mobileBtn.addEventListener('click', () => nav.classList.toggle('open'));
+
+        // Scroll Header
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        // FAQ
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Fermer les autres
+                document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.faq-question span').forEach(s => s.textContent = '+');
+
+                if (!isActive) {
+                    item.classList.add('active');
+                    q.querySelector('span').textContent = '-';
+                }
+            });
+        });
+
+        // Animations simples au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.service-card, .portfolio-item').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            el.style.transition = "all 0.5s ease-out";
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
