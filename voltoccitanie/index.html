@@ -1,1 +1,1144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltOccitanie - Votre Électricien entre Montpellier et Nîmes</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
+    <style>
+        /* ==========================================================================
+           VARIABLES CSS & RESET
+           ========================================================================== */
+        :root {
+            /* Palette de couleurs */
+            --color-primary: #1e3a8a;       /* Bleu profond */
+            --color-primary-light: #2563eb;
+            --color-primary-dark: #172554;
+            --color-accent: #facc15;        /* Jaune électricien */
+            --color-accent-hover: #eab308;
+            --color-bg: #f8fafc;            /* Gris très clair */
+            --color-surface: #ffffff;
+            --color-text-main: #334155;
+            --color-text-muted: #64748b;
+            --color-text-light: #f8fafc;
+            --color-danger: #ef4444;
+
+            /* Dimensions & Formes */
+            --border-radius: 12px;
+            --radius-full: 9999px;
+            --header-height: 80px;
+
+            /* Transitions & Ombres */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--header-height);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ==========================================================================
+           COMPOSANTS GÉNERAUX
+           ========================================================================== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title {
+            color: var(--color-primary);
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .section-subtitle {
+            color: var(--color-text-muted);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Boutons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-primary-dark);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--color-text-light);
+            border: 2px solid var(--color-surface);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-surface);
+            color: var(--color-primary);
+        }
+
+        .btn-danger {
+            background-color: var(--color-surface);
+            color: var(--color-danger);
+            border: 2px solid var(--color-danger);
+            border-radius: var(--radius-full);
+            padding: 0.5rem 1.25rem;
+        }
+
+        .btn-danger:hover {
+            background-color: var(--color-danger);
+            color: var(--color-surface);
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+        }
+
+        /* ==========================================================================
+           HEADER & NAVIGATION
+           ========================================================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: var(--color-surface);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+
+        .logo-icon {
+            color: var(--color-accent-hover);
+        }
+
+        .nav-menu {
+            display: none; /* Masqué sur mobile par défaut */
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--color-text-main);
+        }
+
+        .nav-link:hover {
+            color: var(--color-primary-light);
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--color-primary);
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .hero {
+            background: linear-gradient(105deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(255, 255, 255, 0) 100%),
+                        url('https://capwebdesign.fr/wp-content/uploads/2026/05/technicien-climatisation-1.webp') center/cover no-repeat;
+            color: var(--color-text-main);
+            padding: calc(var(--header-height) + 4rem) 0 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: rgba(30, 58, 138, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary-dark);
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-main);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero .btn-outline {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .hero .btn-outline:hover {
+            background-color: var(--color-primary);
+            color: var(--color-surface);
+        }
+
+        /* ==========================================================================
+           SERVICES SECTION
+           ========================================================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--color-surface);
+            padding: 2.5rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-top-color: var(--color-accent);
+        }
+
+        .service-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-bg);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon-wrapper {
+            background-color: var(--color-primary);
+            color: var(--color-accent);
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-desc {
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-link {
+            font-weight: 600;
+            color: var(--color-primary-light);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .service-link:hover {
+            color: var(--color-primary-dark);
+            gap: 0.5rem; /* Effet de flèche qui avance */
+        }
+
+        /* ==========================================================================
+           RÉALISATIONS SECTION
+           ========================================================================== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--color-surface);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--color-accent);
+            color: var(--color-primary-dark);
+            padding: 0.35rem 0.85rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-desc {
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* ==========================================================================
+           ZONES D'INTERVENTION
+           ========================================================================== */
+        .zones-section {
+            background-color: var(--color-surface);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .zones-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .zones-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .zone-tag {
+            background-color: var(--color-bg);
+            color: var(--color-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .zone-tag:hover {
+            background-color: var(--color-primary);
+            color: var(--color-surface);
+            transform: scale(1.05);
+        }
+
+        /* ==========================================================================
+           AVIS CLIENTS
+           ========================================================================== */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .review-card {
+            background-color: var(--color-surface);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .stars {
+            display: flex;
+            gap: 0.25rem;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--color-text-main);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .review-text::before {
+            content: '"';
+            position: absolute;
+            top: -1.5rem;
+            left: -1rem;
+            font-size: 4rem;
+            color: var(--color-bg);
+            z-index: -1;
+            font-family: serif;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background-color: var(--color-primary-light);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .author-info h4 {
+            color: var(--color-primary);
+            font-size: 1rem;
+        }
+
+        .author-info p {
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* ==========================================================================
+           FAQ SECTION
+           ========================================================================== */
+        .faq-section {
+            background-color: var(--color-bg);
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background-color: var(--color-surface);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-item summary {
+            padding: 1.5rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+            color: var(--color-primary);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--color-accent-hover);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-item p {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--color-text-muted);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        .footer {
+            background-color: var(--color-primary-dark);
+            color: var(--color-text-light);
+            padding: 4rem 0 2rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            color: var(--color-surface);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+            padding-left: 0.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-item i {
+            color: var(--color-accent);
+            margin-top: 0.25rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0 0.5rem;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--color-surface);
+        }
+
+        /* ==========================================================================
+           MEDIA QUERIES (Mobile First vers Desktop)
+           ========================================================================== */
+        @media (min-width: 640px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            .hero-cta {
+                flex-direction: row;
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .nav-menu {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: none;
+            }
+            .hero-content {
+                text-align: left;
+                margin: 0;
+                max-width: 600px; /* Garde le texte à gauche, là où le dégradé est blanc */
+            }
+            .hero-cta {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
+
+        /* Menu Mobile Actif */
+        .nav-menu.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            background-color: var(--color-surface);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-menu.active .btn-danger {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i data-lucide="zap" class="logo-icon"></i>
+                VoltOccitanie
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#services" class="nav-link">Nos Services</a>
+                <a href="#realisations" class="nav-link">Réalisations</a>
+                <a href="#zone" class="nav-link">Zone d'intervention</a>
+                <a href="#avis" class="nav-link">Avis Clients</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="tel:+33600000000" class="btn btn-danger">
+                    <i data-lucide="phone-call" style="width: 18px; height: 18px;"></i>
+                    Urgence 24h/7j
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="accueil">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+                        Artisan Certifié & Garanti Décennale
+                    </div>
+                    <h1 class="hero-title">Votre électricien de confiance entre Montpellier et Nîmes</h1>
+                    <p class="hero-subtitle">Interventions rapides, installations sécurisées et dépannage d'urgence 24h/7j dans l'Hérault (34) et le Gard (30). Un savoir-faire reconnu pour les particuliers et professionnels.</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">
+                            Demander un devis gratuit
+                            <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+                        </a>
+                        <a href="#services" class="btn btn-outline">Découvrir nos services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="section-padding" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Notre Expertise Électrique</h2>
+                    <p class="section-subtitle">Des solutions sur mesure pour garantir la sécurité, le confort et la performance énergétique de votre habitat.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-icon-wrapper">
+                            <i data-lucide="plug-zap"></i>
+                        </div>
+                        <h3 class="service-title">Installation Neuf & Rénovation</h3>
+                        <p class="service-desc">Création complète de réseaux électriques, pose d'appareillages et câblage structuré pour vos projets de construction ou rénovation.</p>
+                        <a href="#" class="service-link">En savoir plus <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></a>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-icon-wrapper">
+                            <i data-lucide="siren"></i>
+                        </div>
+                        <h3 class="service-title">Dépannage Urgence 24/7</h3>
+                        <p class="service-desc">Recherche de panne, coupure de courant, remplacement de disjoncteur défectueux. Intervention rapide pour rétablir votre sécurité.</p>
+                        <a href="#" class="service-link">En savoir plus <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></a>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-icon-wrapper">
+                            <i data-lucide="cpu"></i>
+                        </div>
+                        <h3 class="service-title">Domotique & Connectivité</h3>
+                        <p class="service-desc">Transformez votre maison en espace intelligent : gestion du chauffage, éclairage connecté, motorisation de volets et alarmes.</p>
+                        <a href="#" class="service-link">En savoir plus <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></a>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card">
+                        <div class="service-icon-wrapper">
+                            <i data-lucide="clipboard-check"></i>
+                        </div>
+                        <h3 class="service-title">Mise aux Normes</h3>
+                        <p class="service-desc">Mise en sécurité de votre tableau électrique et de votre installation conformément à la norme NF C 15-100 pour une protection totale.</p>
+                        <a href="#" class="service-link">En savoir plus <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RÉALISATIONS SECTION -->
+        <section class="section-padding" id="realisations" style="background-color: var(--color-surface); border-top: 1px solid rgba(0,0,0,0.05);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nos Dernières Réalisations</h2>
+                    <p class="section-subtitle">Découvrez des exemples concrets de notre savoir-faire lors de récents chantiers chez nos clients.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Projet 1 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="project-tag">Mise aux normes</div>
+                            <img src="https://capwebdesign.fr/wp-content/uploads/2026/05/tableau-electrique-1.webp" alt="">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Rénovation d'un tableau électrique</h3>
+                            <p class="project-desc">Remplacement complet d'un ancien tableau à fusibles par un coffret modulaire encastré, avec mise à la terre et disjoncteurs différentiels 30mA pour une villa à Castelnau-le-Lez.</p>
+                        </div>
+                    </article>
+
+                    <!-- Projet 2 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="project-tag">Domotique</div>
+                            <img src="https://capwebdesign.fr/wp-content/uploads/2026/05/ruban-led-sejour-1.webp" alt="">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Éclairage architectural et pilotage</h3>
+                            <p class="project-desc">Installation de rubans LED invisibles et de spots basse consommation dans un séjour à Montpellier. Pilotage complet via smartphone et commandes vocales.</p>
+                        </div>
+                    </article>
+
+                    <!-- Projet 3 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="project-tag">Mobilité Verte</div>
+                            <img src="https://capwebdesign.fr/wp-content/uploads/2026/05/borne-de-recharge-1.webp" alt="">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Pose d'une borne de recharge 22kW</h3>
+                            <p class="project-desc">Installation certifiée IRVE d'une borne de recharge rapide en triphasé pour le parking privé d'une entreprise située à Nîmes, avec gestion dynamique de la charge.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ZONES D'INTERVENTION -->
+        <section class="section-padding zones-section" id="zone">
+            <div class="container zones-wrapper">
+                <div class="section-header" style="margin-bottom: 1rem;">
+                    <h2 class="section-title">Toujours proches de vous</h2>
+                    <p class="section-subtitle">Basés stratégiquement entre le 34 et le 30, nous garantissons des délais d'intervention courts sur un large secteur.</p>
+                </div>
+                
+                <div class="zones-list">
+                    <span class="zone-tag"><i data-lucide="map-pin" style="width: 16px; height: 16px;"></i> Montpellier</span>
+                    <span class="zone-tag"><i data-lucide="map-pin" style="width: 16px; height: 16px;"></i> Nîmes</span>
+                    <span class="zone-tag"><i data-lucide="map-pin" style="width: 16px; height: 16px;"></i> Lunel</span>
+                    <span class="zone-tag"><i data-lucide="map-pin" style="width: 16px; height: 16px;"></i> Castelnau-le-Lez</span>
+                    <span class="zone-tag"><i data-lucide="map-pin" style="width: 16px; height: 16px;"></i> Sommières</span>
+                    <span class="zone-tag"><i data-lucide="map-pin" style="width: 16px; height: 16px;"></i> Vauvert</span>
+                    <span class="zone-tag"><i data-lucide="map-pin" style="width: 16px; height: 16px;"></i> Baillargues</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- AVIS CLIENTS -->
+        <section class="section-padding" id="avis">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">La satisfaction de nos clients</h2>
+                    <p class="section-subtitle">Ne nous croyez pas sur parole, découvrez ce que nos clients disent de nos interventions.</p>
+                </div>
+
+                <div class="reviews-grid">
+                    <!-- Avis 1 -->
+                    <div class="review-card">
+                        <div class="stars">
+                            <i data-lucide="star" fill="currentColor"></i>
+                            <i data-lucide="star" fill="currentColor"></i>
+                            <i data-lucide="star" fill="currentColor"></i>
+                            <i data-lucide="star" fill="currentColor"></i>
+                            <i data-lucide="star" fill="currentColor"></i>
+                        </div>
+                        <p class="review-text">Intervention très rapide en plein week-end suite à une coupure générale. L'électricien a été professionnel, rassurant et le tarif annoncé au téléphone a été respecté. Je recommande vivement !</p>
+                        <div class="review-author">
+                            <div class="author-avatar">S</div>
+                            <div class="author-info">
+                                <h4>Sophie M.</h4>
+                                <p>Dépannage à Montpellier</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Avis 2 -->
+                    <div class="review-card">
+                        <div class="stars">
+                            <i data-lucide="star" fill="currentColor"></i>
+                            <i data-lucide="star" fill="currentColor"></i>
+                            <i data-lucide="star" fill="currentColor"></i>
+                            <i data-lucide="star" fill="currentColor"></i>
+                            <i data-lucide="star" fill="currentColor"></i>
+                        </div>
+                        <p class="review-text">Nous avons confié la mise aux normes complète de notre maison ancienne. L'équipe a été ponctuelle, de très bon conseil, et le chantier était impeccable à la fin de chaque journée.</p>
+                        <div class="review-author">
+                            <div class="author-avatar" style="background-color: var(--color-accent); color: var(--color-primary-dark);">L</div>
+                            <div class="author-info">
+                                <h4>Laurent D.</h4>
+                                <p>Rénovation à Nîmes</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Avis 3 -->
+                    <div class="review-card">
+                        <div class="stars">
+                            <i data-lucide="star" fill="currentColor"></i>
+                            <i data-lucide="star" fill="currentColor"></i>
+                            <i data-lucide="star" fill="currentColor"></i>
+                            <i data-lucide="star" fill="currentColor"></i>
+                            <i data-lucide="star" fill="currentColor"></i>
+                        </div>
+                        <p class="review-text">Installation d'un système domotique pour piloter nos radiateurs et volets. Le travail est soigné, l'explication du fonctionnement claire. C'est un vrai confort au quotidien, merci !</p>
+                        <div class="review-author">
+                            <div class="author-avatar">A</div>
+                            <div class="author-info">
+                                <h4>Alice T.</h4>
+                                <p>Installation à Lunel</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="section-padding faq-section" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Questions Fréquentes</h2>
+                    <p class="section-subtitle">Retrouvez les réponses aux questions les plus courantes concernant nos interventions électriques.</p>
+                </div>
+                
+                <div class="faq-list">
+                    <details class="faq-item" open>
+                        <summary>Quels sont vos délais d'intervention pour une urgence ?</summary>
+                        <p>Pour les urgences (coupure de courant totale, risque électrique), nous intervenons généralement en moins de 2 heures sur le secteur entre Montpellier et Nîmes, 7 jours sur 7 et 24 heures sur 24.</p>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>Le devis est-il gratuit ?</summary>
+                        <p>Oui, tous nos devis sont 100% gratuits et sans engagement. Un déplacement peut être nécessaire pour évaluer précisément le chantier (rénovation, mise aux normes) avant de vous fournir une estimation détaillée.</p>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>Vos travaux sont-ils garantis ?</summary>
+                        <p>Absolument. Nous disposons d'une Garantie Décennale et d'une Responsabilité Civile Professionnelle. Tout notre matériel installé (Legrand, Schneider, Hager...) bénéficie également de la garantie du constructeur.</p>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>Délivrez-vous des attestations Consuel ?</summary>
+                        <p>Oui, pour toutes les installations neuves ou les rénovations complètes nécessitant une validation, nous préparons et soumettons les dossiers pour obtenir l'attestation de conformité Consuel de votre installation électrique.</p>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>Installez-vous des bornes de recharge pour véhicules électriques ?</summary>
+                        <p>Oui, nous sommes habilités (qualification IRVE) pour l'installation de bornes de recharge pour véhicules électriques et hybrides rechargeables, que ce soit pour les particuliers (maison individuelle, copropriété) ou pour les professionnels.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1 : À propos -->
+                <div class="footer-col">
+                    <h3 class="logo" style="color: var(--color-surface);">
+                        <i data-lucide="zap" class="logo-icon"></i>
+                        VoltOccitanie
+                    </h3>
+                    <p class="footer-text">Artisan électricien qualifié intervenant dans l'Hérault et le Gard. De l'urgence au projet d'envergure, nous illuminons votre quotidien en toute sécurité.</p>
+                    <div class="hero-badge" style="background-color:#ffffff; border:1px solid #eee; margin-bottom:0;">
+                        Garantie Décennale N° 123456789
+                    </div>
+                </div>
+
+                <!-- Col 2 : Liens rapides -->
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <div class="footer-links">
+                        <a href="#"><i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i> Dépannage électrique</a>
+                        <a href="#"><i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i> Installation & Rénovation</a>
+                        <a href="#"><i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i> Mise en sécurité (NFC 15-100)</a>
+                        <a href="#"><i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i> Maison connectée</a>
+                        <a href="#"><i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i> Bornes de recharge VE</a>
+                    </div>
+                </div>
+
+                <!-- Col 3 : Contact -->
+                <div class="footer-col">
+                    <h3>Contactez-nous</h3>
+                    <div class="contact-item">
+                        <i data-lucide="map-pin" style="width: 20px; height: 20px;"></i>
+                        <p>Z.A. de l'Avenir<br>34400 Lunel, France</p>
+                    </div>
+                    <div class="contact-item">
+                        <i data-lucide="phone" style="width: 20px; height: 20px;"></i>
+                        <p>
+                            <strong>Urgence :</strong> 06 00 00 00 00<br>
+                            <strong>Bureau :</strong> 04 67 00 00 00
+                        </p>
+                    </div>
+                    <div class="contact-item">
+                        <i data-lucide="mail" style="width: 20px; height: 20px;"></i>
+                        <p>contact@voltoccitanie-demo.fr</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 VoltOccitanie. Tous droits réservés.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">CGV</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialisation des icônes et scripts -->
+    <script>
+        // Initialiser les icônes Lucide
+        lucide.createIcons();
+
+        // Gestion du menu mobile
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        const menuIcon = mobileMenuBtn.querySelector('i');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            
+            // Changer l'icône menu/croix
+            if(navMenu.classList.contains('active')) {
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        });
+
+        // Fermer le menu lors d'un clic sur un lien (sur mobile)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+    </script>
+</body>
+</html>
