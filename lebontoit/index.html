@@ -34,7 +34,7 @@
 
         html {
             scroll-behavior: smooth;
-            overflow-x: hidden; /* Empêche le scroll horizontal global */
+            overflow-x: hidden;
         }
 
         body {
@@ -66,7 +66,7 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            display: block; /* Évite l'espace fantôme sous les images */
+            display: block;
         }
 
         .container {
@@ -108,7 +108,7 @@
             width: 100%;
             z-index: 1000;
             box-shadow: var(--shadow);
-            background-color: var(--white); /* Assure un fond plein */
+            background-color: var(--white);
         }
 
         .top-bar {
@@ -122,14 +122,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; /* Ajout en cas de dépassement */
+            flex-wrap: wrap;
             gap: 10px;
         }
 
         .top-info {
             display: flex;
             gap: 25px;
-            flex-wrap: wrap; /* Ajout en cas de dépassement */
+            flex-wrap: wrap;
         }
 
         .top-info a {
@@ -190,7 +190,6 @@
             gap: 15px;
         }
 
-        /* Bouton devis exclusif au menu mobile (masqué sur desktop) */
         .mobile-only-btn {
             display: none;
         }
@@ -213,7 +212,7 @@
             transition: var(--transition);
         }
 
-        /* NOUVELLE HERO SECTION MODERNE */
+        /* HERO SECTION */
         .hero {
             position: relative;
             min-height: 85vh;
@@ -253,7 +252,7 @@
             display: flex;
             gap: 20px;
             margin-bottom: 30px;
-            flex-wrap: wrap; /* Ajout pour ne pas dépasser sur mobile */
+            flex-wrap: wrap;
         }
 
         .hero-feature {
@@ -461,7 +460,7 @@
             .hero {
                 min-height: 70vh;
                 background-image: linear-gradient(to bottom, rgba(255,255,255,0.95) 40%, rgba(255,255,255,0.7) 100%), 
-                                  url('https://capwebdesign.fr/wp-content/uploads/2026/05/toiture-1.webp'); /* URL mise à jour selon votre image */
+                                  url('https://capwebdesign.fr/wp-content/uploads/2026/05/toiture-1.webp');
                 text-align: center;
                 justify-content: center;
                 background-position: center;
@@ -477,7 +476,6 @@
                 justify-content: center;
             }
             
-            /* Grilles transformées en 1 colonne (ou 2 petites sur tablette) */
             .footer-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
@@ -492,7 +490,7 @@
             /* Menu Hamburger */
             .nav-links {
                 position: fixed;
-                top: 70px; /* Aligné sous le header */
+                top: 70px;
                 left: -100%;
                 width: 100%;
                 height: calc(100vh - 70px);
@@ -501,15 +499,14 @@
                 padding: 40px 20px;
                 transition: 0.4s ease-in-out;
                 z-index: 999;
-                overflow-y: auto; /* Permet le scroll si le menu est trop grand */
+                overflow-y: auto;
             }
 
             .nav-links.active { left: 0; }
             .menu-toggle { display: block; }
             
-            /* Gestion des boutons CTA sur mobile */
             .header-cta .btn {
-                display: none; /* On cache le gros bouton dans l'en-tête pour gagner de la place */
+                display: none;
             }
             .mobile-only-btn {
                 display: inline-block;
@@ -521,7 +518,7 @@
         /* RESPONSIVE (Petits Mobiles) */
         @media (max-width: 768px) {
             .section-padding {
-                padding: 60px 0; /* Espacement réduit */
+                padding: 60px 0;
             }
             .section-title {
                 margin-bottom: 40px;
@@ -530,12 +527,11 @@
                 font-size: 2rem;
             }
             .hero-content h1 {
-                font-size: 2.2rem; /* Texte plus petit */
+                font-size: 2.2rem;
             }
             .hero-content p {
                 font-size: 1.1rem;
             }
-            /* Force les services et portfolio en 1 colonne sur petit mobile */
             .services-grid, .portfolio-grid {
                 grid-template-columns: 1fr; 
             }
@@ -571,7 +567,6 @@
                     </ul>
                 </nav>
                 <div class="header-cta">
-                    <!-- Bouton devis classique (masqué sur mobile) -->
                     <a href="#contact" class="btn btn-primary">Devis Gratuit</a>
                     <button class="menu-toggle" id="menu-btn" aria-label="Menu">
                         <span></span><span></span><span></span>
@@ -694,7 +689,6 @@
 
     <!-- Contact -->
     <section id="contact" class="section-padding" style="background:var(--light-gray)">
-        <!-- Remplacement du conteneur inline par une classe dédiée -->
         <div class="container contact-grid">
             <div>
                 <h2>Contactez-nous</h2>
@@ -777,7 +771,7 @@
             nav.classList.toggle('active');
         });
 
-        // Fermer le menu mobile lorsqu'on clique sur un lien (Ajouté)
+        // Fermer le menu mobile lorsqu'on clique sur un lien
         const navLinks = document.querySelectorAll('.nav-links a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
