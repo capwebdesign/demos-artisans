@@ -1,1 +1,2303 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jean, votre électricien à Montpellier - electro34 - Dépannage, installation, rénovation (60 km)</title>
+  <meta name="description" content="Jean, artisan électricien à Montpellier et alentours (60 km) avec electro34 : dépannage d'urgence, installations, rénovations et mise en conformité NF C 15-100. Devis gratuit, décennale AXA." />
+  
+  <!-- Polices système et Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      /* Couleurs globales conformes à la charte d'electro34 */
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-soft: #e0effe;
+      --accent: #fbbf24;
+      --accent-hover: #d97706;
+      --success: #16a34a;
+      --success-hover: #15803d;
+      --dark-bg: #0f172a;
+      --dark-deep: #020617;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --bg-light: #f8fafc;
+      --bg-white: #ffffff;
+      --border-color: #e2e8f0;
+      
+      /* Espacements et géométrie Spectra */
+      --max-width: 1240px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-pill: 9999px;
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
+    /* Reset global et bases typographiques */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+    button {
+      font-family: inherit;
+      border: none;
+      cursor: pointer;
+      background: none;
+      transition: var(--transition-fast);
+    }
+
+    /* Utilitaires structurels calqués sur Spectra Container */
+    .spectra-container {
+      max-width: var(--max-width);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .spectra-section {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    @media (max-width: 768px) {
+      .spectra-section {
+        padding-top: 48px;
+        padding-bottom: 48px;
+      }
+    }
+
+    /* Boutons et éléments interactifs */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 15px;
+      text-align: center;
+      transition: var(--transition-fast);
+    }
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--bg-white);
+    }
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+    }
+    .btn-accent {
+      background: linear-gradient(135deg, #f59e0b, var(--accent));
+      color: var(--dark-deep);
+    }
+    .btn-accent:hover {
+      background: linear-gradient(135deg, var(--accent-hover), #f59e0b);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--bg-white);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.18);
+    }
+    .btn-success {
+      background-color: var(--success);
+      color: var(--bg-white);
+    }
+    .btn-success:hover {
+      background-color: var(--success-hover);
+    }
+
+    /* Animation de pulsation verte pour les urgences */
+    .pulse-green {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      50% { transform: scale(1.03); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+    }
+
+    /* Badges textuels */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      width: fit-content;
+    }
+    .badge-primary {
+      background-color: var(--primary-soft);
+      color: var(--primary);
+    }
+    .badge-accent {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* Headers de Sections */
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 56px auto;
+    }
+    .section-header h2 {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--dark-deep);
+      margin-top: 12px;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .section-header p {
+      font-size: 17px;
+      color: var(--text-muted);
+    }
+    @media (max-width: 768px) {
+      .section-header h2 { font-size: 28px; }
+      .section-header p { font-size: 15px; }
+    }
+
+    /* Barre d'alerte supérieure */
+    .topbar {
+      background-color: var(--dark-bg);
+      color: var(--bg-white);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .topbar .spectra-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: #4ade80;
+      border-radius: 50%;
+      position: relative;
+    }
+    .status-dot::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid #4ade80;
+      animation: ping 1.5s infinite;
+      opacity: 0.6;
+    }
+    @keyframes ping {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    @media (max-width: 640px) {
+      .topbar .spectra-container {
+        justify-content: center;
+        text-align: center;
+      }
+      .topbar-right { display: none; }
+    }
+
+    /* Navigation Header */
+    header {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary), #3b82f6);
+      color: var(--bg-white);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+    }
+    .logo-text strong {
+      display: block;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--dark-deep);
+      line-height: 1.1;
+    }
+    .logo-text span {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-link {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .nav-link:hover {
+      color: var(--primary);
+    }
+    
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .mobile-menu-btn {
+      display: none;
+      padding: 8px;
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+    }
+    .mobile-menu-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Menu mobile déroulant */
+    .mobile-nav {
+      display: none;
+      background-color: var(--bg-white);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 16px;
+      font-weight: 600;
+      color: var(--text-main);
+      border-radius: var(--radius-sm);
+    }
+    .mobile-nav-link:hover {
+      background-color: var(--bg-light);
+      color: var(--primary);
+    }
+    .mobile-nav-cta {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-t: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 1024px) {
+      .nav-menu, .header-actions { display: none; }
+      .mobile-menu-btn { display: block; }
+      .mobile-nav.open { display: block; }
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, var(--dark-deep), var(--dark-bg));
+      color: var(--bg-white);
+      padding-top: 96px;
+      padding-bottom: 96px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(37, 99, 235, 0.15) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.5;
+    }
+    .hero .spectra-container {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .hero-content h1 {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+    }
+    .hero-content h1 span {
+      background: linear-gradient(to right, var(--accent), #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-content p.lead {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 580px;
+    }
+    .hero-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      list-style: none;
+    }
+    .hero-features li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .hero-features li svg {
+      width: 18px;
+      height: 18px;
+      color: #4ade80;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Carte de contact dans le Hero */
+    .contact-card {
+      background-color: var(--bg-white);
+      color: var(--dark-deep);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+    }
+    .contact-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .contact-card p.sub {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .field {
+      margin-bottom: 14px;
+    }
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .field label span.req {
+      color: #ef4444;
+    }
+    .field input, .field textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: var(--transition-fast);
+      background-color: var(--bg-light);
+    }
+    .field input:focus, .field textarea:focus {
+      background-color: var(--bg-white);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--primary-soft);
+    }
+    .field textarea {
+      height: 72px;
+      resize: none;
+    }
+    .form-submit {
+      width: 100%;
+      font-size: 16px;
+      padding: 14px;
+    }
+    .hp_field {
+      display: none;
+    }
+
+    /* Message de succès dynamique du formulaire */
+    .success-panel {
+      text-align: center;
+      padding: 40px 10px;
+    }
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background-color: #dcfce7;
+      color: var(--success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px auto;
+    }
+    .success-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+    .success-panel h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .success-panel p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 1024px) {
+      .hero { padding-top: 64px; padding-bottom: 64px; }
+      .hero .spectra-container { grid-template-columns: 1fr; gap: 48px; }
+      .hero-content { text-align: center; align-items: center; }
+      .hero-content h1 { font-size: 40px; }
+      .hero-features { max-width: 480px; }
+    }
+
+    /* Bandeau de Confiance */
+    .trust-banner {
+      background-color: var(--bg-white);
+      border-bottom: 1px solid var(--border-color);
+      padding: 32px 0;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .trust-item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .trust-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .trust-subtitle {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+    @media (max-width: 768px) {
+      .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    }
+
+    /* Assistant de Diagnostic de Panne */
+    .diag-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 32px;
+    }
+    .diag-selector {
+      grid-column: span 6;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .diag-option {
+      background-color: var(--bg-white);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+      width: 100%;
+      transition: var(--transition-normal);
+    }
+    .diag-option:hover {
+      border-color: var(--primary);
+    }
+    .diag-option.active {
+      border-color: var(--primary);
+      background-color: var(--primary-soft);
+    }
+    .diag-icon-wrapper {
+      font-size: 28px;
+    }
+    .diag-text h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--dark-deep);
+    }
+    .diag-text p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .diag-instructions-box {
+      grid-column: span 6;
+      background-color: var(--dark-bg);
+      color: var(--bg-white);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .diag-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .diag-badge {
+      background-color: var(--accent);
+      color: var(--dark-deep);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .diag-step-title {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 600;
+    }
+    
+    .diag-body h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .diag-body p {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .diag-list {
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+      list-style-type: decimal;
+      margin-bottom: 16px;
+    }
+    .diag-list li {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 8px;
+    }
+    .diag-list li:last-child {
+      margin-bottom: 0;
+    }
+    .diag-footer-note {
+      font-size: 12px;
+      background-color: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      color: #93c5fd;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+    }
+    .diag-footer-note.urgent {
+      background-color: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      color: #fca5a5;
+    }
+    .diag-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      border-t: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+    }
+    .diag-actions .btn {
+      flex: 1;
+      padding: 12px;
+      font-size: 14px;
+    }
+    
+    @media (max-width: 1024px) {
+      .diag-selector, .diag-instructions-box { grid-column: span 12; }
+    }
+
+    /* Grille de Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .service-card {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-normal);
+    }
+    .service-card:hover {
+      border-color: rgba(37, 99, 235, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+    }
+    .service-media {
+      height: 200px;
+      background-color: #e2e8f0;
+      position: relative;
+    }
+    .service-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .service-tag {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background-color: var(--primary);
+      color: var(--bg-white);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .service-tag.urgent-tag {
+      background-color: #ef4444;
+    }
+    .service-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .service-content h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--dark-deep);
+      margin-bottom: 8px;
+    }
+    .service-content p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .service-pricing {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+    .pricing-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .pricing-value {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Section À Propos */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 48px;
+      align-items: center;
+    }
+    .about-text {
+      grid-column: span 6;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .about-text h2 {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--dark-deep);
+      line-height: 1.2;
+    }
+    .about-text p {
+      font-size: 16px;
+      color: var(--text-main);
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding-top: 16px;
+    }
+    .about-stat-item {
+      display: flex;
+      gap: 12px;
+    }
+    .about-stat-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .about-stat-details h4 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--dark-deep);
+    }
+    .about-stat-details p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    
+    .about-media {
+      grid-column: span 6;
+      position: relative;
+    }
+    .about-media-wrapper {
+      position: relative;
+      background-color: var(--bg-white);
+      padding: 16px;
+      border-radius: var(--radius-xl);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-color);
+    }
+    .about-images-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .about-images-grid img {
+      border-radius: var(--radius-lg);
+      height: 190px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .about-quote {
+      margin-top: 16px;
+      padding: 16px;
+      background-color: var(--primary-soft);
+      border-radius: var(--radius-lg);
+      border-left: 4px solid var(--primary);
+    }
+    .about-quote blockquote {
+      font-size: 13px;
+      font-style: italic;
+      color: #1e3a8a;
+    }
+    .about-quote cite {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--dark-bg);
+      margin-top: 6px;
+      font-style: normal;
+    }
+    @media (max-width: 1024px) {
+      .about-text, .about-media { grid-column: span 12; }
+      .about-text { text-align: center; align-items: center; }
+      .about-stats { text-align: left; }
+    }
+
+    /* Explorateur de Secteur */
+    .sector-section {
+      background-color: var(--dark-bg);
+      color: var(--bg-white);
+      position: relative;
+    }
+    .sector-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 48px;
+      align-items: center;
+    }
+    .sector-explorer-panel {
+      grid-column: span 6;
+      background-color: var(--bg-white);
+      color: var(--dark-deep);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    }
+    .sector-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .sector-panel-header h3 {
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .sector-buttons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .sector-btn {
+      background-color: var(--bg-white);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      text-align: left;
+      transition: var(--transition-normal);
+    }
+    .sector-btn:hover {
+      border-color: var(--primary);
+    }
+    .sector-btn.active {
+      border-color: var(--primary);
+      background-color: var(--primary-soft);
+    }
+    .sector-btn h4 {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--dark-deep);
+    }
+    .sector-btn p {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    
+    .sector-details-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+    }
+    .sector-details-wrapper h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--dark-deep);
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--success);
+      background-color: #dcfce7;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .time-indicator {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-top: 4px;
+    }
+    .sector-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+    .cities-title {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+    .cities-tags-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .city-tag {
+      font-size: 11px;
+      font-weight: 600;
+      background-color: var(--bg-white);
+      color: var(--text-main);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .sector-content {
+      grid-column: span 6;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .sector-content h2 {
+      font-size: 36px;
+      font-weight: 800;
+    }
+    .sector-content p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+    }
+    .sector-infocard {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      background-color: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+    }
+    .sector-infocard-icon {
+      font-size: 32px;
+    }
+    .sector-infocard-txt h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--bg-white);
+    }
+    .sector-infocard-txt p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 2px;
+    }
+    @media (max-width: 1024px) {
+      .sector-explorer-panel, .sector-content { grid-column: span 12; }
+      .sector-content { text-align: center; align-items: center; }
+    }
+
+    /* Avis Clients */
+    .filter-btn-grid {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 13.5px;
+      background-color: var(--bg-light);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+    .filter-btn:hover {
+      background-color: var(--border-color);
+      color: var(--dark-deep);
+    }
+    .filter-btn.active {
+      background-color: var(--primary);
+      color: var(--bg-white);
+      border-color: var(--primary);
+    }
+    
+    .reviews-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .review-card {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: var(--transition-normal);
+    }
+    .review-card.hidden {
+      display: none;
+    }
+    .review-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .review-location {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .review-type-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .review-type-badge.depannage {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+    }
+    .review-type-badge.tableau {
+      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+    }
+    .review-type-badge.normes {
+      background-color: rgba(22, 163, 74, 0.1);
+      color: var(--success);
+    }
+    .stars {
+      color: var(--accent);
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+    .review-card blockquote {
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--text-main);
+      flex-grow: 1;
+    }
+    .review-client {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 16px;
+    }
+    .client-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .client-info h5 {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--dark-deep);
+    }
+    .client-info p {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    @media (max-width: 1024px) {
+      .reviews-container { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .reviews-container { grid-template-columns: 1fr; }
+    }
+
+    /* Section Appels d'Urgence / CTA Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+      color: var(--bg-white);
+      text-align: center;
+      padding: 64px 0;
+    }
+    .cta-banner h2 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .cta-banner p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.9);
+      max-width: 650px;
+      margin: 0 auto 32px auto;
+    }
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .cta-phone-btn {
+      background-color: var(--bg-white);
+      color: var(--primary-hover);
+      font-size: 28px;
+      font-weight: 800;
+      padding: 16px 36px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .cta-phone-btn:hover {
+      background-color: var(--bg-light);
+      transform: translateY(-2px);
+    }
+    .cta-banner span.subtext {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* FAQ Accordion Section */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .faq-item {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition-fast);
+    }
+    .faq-item.active {
+      border-color: var(--primary);
+    }
+    .faq-trigger {
+      width: 100%;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      font-weight: 700;
+      font-size: 15.5px;
+      color: var(--dark-deep);
+    }
+    .faq-trigger:hover {
+      color: var(--primary);
+    }
+    .faq-icon {
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--primary);
+      transition: var(--transition-fast);
+    }
+    .faq-content {
+      display: none;
+      padding: 0 24px 24px 24px;
+      font-size: 14px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      padding-top: 16px;
+      background-color: var(--bg-light);
+    }
+    .faq-item.active .faq-content {
+      display: block;
+    }
+
+    /* Footer section */
+    footer {
+      background-color: var(--dark-deep);
+      color: #94a3b8;
+      padding-top: 64px;
+      padding-bottom: 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .footer-col h4 {
+      color: var(--bg-white);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-logo .logo-badge {
+      width: 36px;
+      height: 36px;
+      font-size: 14px;
+    }
+    .footer-logo span {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--bg-white);
+    }
+    .footer-col p {
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .footer-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+    .footer-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 16px; }
+    }
+
+    /* Bouton d'appel flottant mobile */
+    .mobile-float-cta {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background-color: var(--success);
+      color: var(--bg-white);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+      z-index: 100;
+    }
+    @media (max-width: 640px) {
+      .mobile-float-cta { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Alert Bar -->
+  <div class="topbar">
+    <div class="spectra-container">
+      <div class="topbar-left">
+        <span class="status-dot"></span>
+        <span>Disponible actuellement pour urgences à Montpellier et Hérault</span>
+      </div>
+      <div class="topbar-right">
+        <span>⚡ Intervention rapide 7j/7 - Rayon de 60 km</span>
+        <span>🛡️ Assurance Décennale AXA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="spectra-container nav-wrapper">
+      <a href="#" class="logo">
+        <div class="logo-badge">e34</div>
+        <div class="logo-text">
+          <strong>electro34</strong>
+          <span>Jean - Artisan électricien • Montpellier (34)</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#apropos" class="nav-link">À propos</a>
+        <a href="#diagnostic" class="nav-link">Diagnostic Urgence</a>
+        <a href="#secteurs" class="nav-link">Rayon 60km</a>
+        <a href="#avis" class="nav-link">Avis clients</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:+33610111213" class="btn btn-success pulse-green">
+          📞 06 10 11 12 13
+        </a>
+      </div>
+
+      <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Menu principal">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path id="burgerIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="mobile-nav">
+      <a href="#services" class="mobile-nav-link">Services</a>
+      <a href="#apropos" class="mobile-nav-link">À propos</a>
+      <a href="#diagnostic" class="mobile-nav-link">Diagnostic Urgence</a>
+      <a href="#secteurs" class="mobile-nav-link">Rayon 60km</a>
+      <a href="#avis" class="mobile-nav-link">Avis clients</a>
+      <a href="#faq" class="mobile-nav-link">FAQ</a>
+      <div class="mobile-nav-cta">
+        <a href="tel:+33610111213" class="btn btn-success" style="width: 100%;">
+          📞 06 10 11 12 13
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with split Column Container -->
+  <section class="hero">
+    <div class="spectra-container">
+      <div class="hero-content">
+        <span class="badge badge-accent">Électricien agréé NF C 15-100 à Montpellier</span>
+        <h1>Besoin d'un <span>électricien</span> de confiance près de chez vous ?</h1>
+        <p class="lead">Jean se déplace à Montpellier et dans un rayon de 60 km (Hérault et Gard limitrophe). Dépannage urgent, rénovations complètes ou remises aux normes de sécurité.</p>
+        
+        <ul class="hero-features">
+          <li>
+            <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+            Dépannage rapide 7j/7
+          </li>
+          <li>
+            <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+            Devis gratuit & transparent
+          </li>
+          <li>
+            <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+            Garantie Décennale AXA
+          </li>
+          <li>
+            <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+            Mise en sécurité Consuel
+          </li>
+        </ul>
+
+        <div class="hero-buttons">
+          <a href="tel:+33610111213" class="btn btn-accent pulse-green">📞 Appeler Jean : 06 10 11 12 13</a>
+          <a href="#diagnostic" class="btn btn-outline">Diagnostic de panne en ligne</a>
+        </div>
+      </div>
+
+      <!-- Contact Devis Form -->
+      <div class="contact-card">
+        <div id="contactFormWrapper">
+          <h3>Demande de devis gratuit</h3>
+          <p class="sub">Réponse rapide garantie sous 24h sans aucun engagement.</p>
+          
+          <form id="contactForm" onsubmit="handleContactSubmit(event)">
+            <!-- Honeypot -->
+            <input class="hp_field" type="text" name="hp_website" id="hp_website" />
+            
+            <div class="form-grid">
+              <div class="field">
+                <label>Nom <span class="req">*</span></label>
+                <input required type="text" name="nom" placeholder="Votre nom" />
+              </div>
+              <div class="field">
+                <label>Téléphone <span class="req">*</span></label>
+                <input required type="tel" name="tel" placeholder="06 10 11 12 13" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Email <span class="req">*</span></label>
+              <input required type="email" name="email" placeholder="adresse@email.com" />
+            </div>
+
+            <div class="field">
+              <label>Ville d'intervention (60 km)</label>
+              <input type="text" name="zone" placeholder="Ex: Montpellier, Sète, Lunel..." />
+            </div>
+
+            <div class="field">
+              <label>Votre besoin <span class="req">*</span></label>
+              <textarea required id="besoinField" name="besoin" placeholder="Décrivez brièvement la panne, l'installation ou la rénovation..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit">Envoyer ma demande</button>
+          </form>
+        </div>
+
+        <!-- Custom Success Screen (replacing form container) -->
+        <div id="successMessage" class="success-panel" style="display: none;">
+          <div class="success-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <h3>Demande envoyée !</h3>
+          <p>Merci pour votre confiance. Jean va analyser votre demande et vous recontacter par téléphone sous 2 heures.</p>
+          <button onclick="resetContactForm()" class="btn-link" style="color: var(--primary); font-weight: 700; text-decoration: underline;">Envoyer une autre demande</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Certification Banner -->
+  <div class="trust-banner">
+    <div class="spectra-container trust-grid">
+      <div class="trust-item">
+        <span class="trust-title">AXA Assurances</span>
+        <span class="trust-subtitle">Décennale N°908764</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-title">NF C 15-100</span>
+        <span class="trust-subtitle">Installations Conformes</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-title">Artisan Certifié</span>
+        <span class="trust-subtitle">Inscrit CMA Occitanie</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-title">CONSUEL</span>
+        <span class="trust-subtitle">Attestation Sécurité</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Diagnostic Section -->
+  <section id="diagnostic" class="spectra-section">
+    <div class="spectra-container">
+      <div class="section-header">
+        <span class="badge badge-primary">Sécurité & Assistance</span>
+        <h2>Assistant de Panne & Consignes de Sécurité</h2>
+        <p>Sélectionnez le symptôme qui correspond à votre situation pour obtenir immédiatement la marche à suivre et préparer l'intervention de Jean.</p>
+      </div>
+
+      <div class="diag-grid">
+        <!-- Diagnostic option triggers -->
+        <div class="diag-selector">
+          <button onclick="selectDiag('blackout')" id="diag-blackout" class="diag-option active">
+            <span class="diag-icon-wrapper">🔌</span>
+            <div class="diag-text">
+              <h4>Coupure de Courant Générale</h4>
+              <p>Plus aucun appareil ni aucune lumière ne fonctionne chez vous.</p>
+            </div>
+          </button>
+
+          <button onclick="selectDiag('breaker')" id="diag-breaker" class="diag-option">
+            <span class="diag-icon-wrapper">🎛️</span>
+            <div class="diag-text">
+              <h4>Fusible ou disjoncteur qui saute continuellement</h4>
+              <p>Dès que vous remettez le courant, le tableau coupe instantanément.</p>
+            </div>
+          </button>
+
+          <button onclick="selectDiag('outlet')" id="diag-outlet" class="diag-option">
+            <span class="diag-icon-wrapper">⚡</span>
+            <div class="diag-text">
+              <h4>Prise ou interrupteur défectueux</h4>
+              <p>Un équipement grésille, ne délivre plus de jus ou bouge du mur.</p>
+            </div>
+          </button>
+
+          <button onclick="selectDiag('danger')" id="diag-danger" class="diag-option">
+            <span class="diag-icon-wrapper">🔥</span>
+            <div class="diag-text" style="color: #ef4444;">
+              <h4>Odeur de brûlé ou étincelles</h4>
+              <p>Urgence critique ! Sensation d'échauffement ou étincelles visibles.</p>
+            </div>
+          </button>
+        </div>
+
+        <!-- Dynamic Output box -->
+        <div class="diag-instructions-box">
+          <div>
+            <div class="diag-header">
+              <span class="diag-badge animate-pulse">Alerte Sécurité</span>
+              <span class="diag-step-title">Conseils en temps réel</span>
+            </div>
+            <div id="diagInstructions">
+              <!-- Default state (filled by script or default html) -->
+            </div>
+          </div>
+
+          <div class="diag-actions">
+            <button onclick="prefillContactWithDiag()" class="btn btn-accent">📝 Demander intervention urgente</button>
+            <a href="tel:+33610111213" class="btn btn-outline">📞 Appeler Jean</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section id="services" class="spectra-section" style="background-color: var(--bg-white); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="spectra-container">
+      <div class="section-header">
+        <span class="badge badge-primary">Prestations de l'artisan</span>
+        <h2>Nos Services d'Électricité Générale</h2>
+        <p>Qu'il s'agisse d'un dépannage rapide ou d'une rénovation globale de mas héraultais, Jean garantit un travail soigné et durable.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Card 1 -->
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" alt="Dépannage Urgent" onerror="this.style.display='none'" />
+            <span class="service-tag urgent-tag">Urgence 7j/7</span>
+          </div>
+          <div class="service-content">
+            <h3>Dépannage Urgent</h3>
+            <p>Coupure de courant, fusible ou disjoncteur capricieux, ou surchauffe suspecte. Diagnostic de l'origine de la panne et sécurisation immédiate.</p>
+            <div class="service-pricing">
+              <span class="pricing-label">Tarif moyen</span>
+              <span class="pricing-value">Dès 89€</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" alt="Mise aux normes" onerror="this.style.display='none'" />
+            <span class="service-tag">Conformité</span>
+          </div>
+          <div class="service-content">
+            <h3>Mise aux Normes NF C 15-100</h3>
+            <p>Évitez les risques d'incendie domestique. Diagnostic complet de votre installation héraultaise et mise en conformité complète avec agrément Consuel.</p>
+            <div class="service-pricing">
+              <span class="pricing-label">Tarif moyen</span>
+              <span class="pricing-value">Sur devis (gratuit)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://images.unsplash.com/photo-1609205807107-e8ec2120f9de?auto=format&fit=crop&w=600&q=80" alt="Remplacement tableau" onerror="this.style.display='none'" />
+            <span class="service-tag">Sécurité</span>
+          </div>
+          <div class="service-content">
+            <h3>Remplacement de Tableau</h3>
+            <p>Remplacement de tableaux vétustes par des équipements de grandes marques (Legrand, Schneider), ajout de protections et fusible ou disjoncteur différentiel 30mA.</p>
+            <div class="service-pricing">
+              <span class="pricing-label">Tarif moyen</span>
+              <span class="pricing-value">Dès 790€</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://images.unsplash.com/photo-1565608087341-404b25492fee?auto=format&fit=crop&w=600&q=80" alt="Rénovation électrique" onerror="this.style.display='none'" />
+            <span class="service-tag">Rénovation</span>
+          </div>
+          <div class="service-content">
+            <h3>Rénovation Électrique</h3>
+            <p>Saignées propres, encastrements soignés ou pose sous moulures esthétiques. Idéal pour appartements du centre historique ou pavillons d'Occitanie.</p>
+            <div class="service-pricing">
+              <span class="pricing-label">Tarif moyen</span>
+              <span class="pricing-value">Sur devis (gratuit)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&q=80" alt="Modernisation" onerror="this.style.display='none'" />
+            <span class="service-tag">Modernisation</span>
+          </div>
+          <div class="service-content">
+            <h3>Prises, Chauffage & LED</h3>
+            <p>Installation de radiateurs dernière génération, création de prises de recharge pour voiture électrique, spots LED encastrés et interrupteurs modernes.</p>
+            <div class="service-pricing">
+              <span class="pricing-label">Tarif moyen</span>
+              <span class="pricing-value">Dès 120€</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="service-card">
+          <div class="service-media">
+            <img src="https://images.unsplash.com/photo-1581092918484-8313ea72ffe4?auto=format&fit=crop&w=600&q=80" alt="Diagnostics" onerror="this.style.display='none'" />
+            <span class="service-tag">Diagnostic</span>
+          </div>
+          <div class="service-content">
+            <h3>Diagnostics & Court-circuit</h3>
+            <p>Audit complet avant achat d'un bien immobilier ou recherche scientifique des fuites de terre qui font disjoncter vos protections.</p>
+            <div class="service-pricing">
+              <span class="pricing-label">Tarif moyen</span>
+              <span class="pricing-value">Dès 99€</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- À Propos Section -->
+  <section id="apropos" class="spectra-section">
+    <div class="spectra-container about-grid">
+      <!-- Description text container -->
+      <div class="about-text">
+        <span class="badge badge-primary">Artisan de Proximité</span>
+        <h2>Jean, votre électricien de confiance en région montpelliéraine</h2>
+        <p>Passionné de technique et diplômé d'électricité générale, j'accompagne depuis plus de 15 ans les particuliers et professionnels de Montpellier, de la côte et de l'arrière-pays héraultais.</p>
+        <p>Chez <strong>electro34</strong>, nous appliquons une charte d'engagement stricte : la transparence absolue sur les prix (pas de mauvaise surprise sur place), le respect drastique de la norme de sécurité <strong>NF C 15-100</strong> et la propreté méticuleuse après le chantier.</p>
+
+        <div class="about-stats">
+          <div class="about-stat-item">
+            <div class="about-stat-icon">⚡</div>
+            <div class="about-stat-details">
+              <h4>Ultra-Réactivité</h4>
+              <p>Un véhicule utilitaire outillé pour parer rapidement à toutes les urgences.</p>
+            </div>
+          </div>
+          <div class="about-stat-item">
+            <div class="about-stat-icon">🛡️</div>
+            <div class="about-stat-details">
+              <h4>Assurances & Garanties</h4>
+              <p>Chaque chantier bénéficie d'une garantie décennale AXA Assurances.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Media element container -->
+      <div class="about-media">
+        <div class="about-media-wrapper">
+          <div class="about-images-grid">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=80" alt="Installation tableau" />
+            <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=400&q=80" alt="Câblages électriques" />
+          </div>
+          <div class="about-quote">
+            <blockquote>"Travailler l'électricité est un métier de rigueur. Un raccordement négligé ou un fusible ou disjoncteur défaillant met en danger la sécurité d'une famille. C'est pourquoi j'apporte un soin rigoureux à chaque geste."</blockquote>
+            <cite>— Jean, Électricien Montpellier</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Sector Exploration Section -->
+  <section id="secteurs" class="spectra-section sector-section">
+    <div class="spectra-container sector-grid">
+      <!-- Sector Selector Board -->
+      <div class="sector-explorer-panel">
+        <div class="sector-panel-header">
+          <h3>Où intervenons-nous ?</h3>
+          <span class="badge badge-primary" style="background-color: var(--primary-soft); color: var(--primary);">Rayon 60 km</span>
+        </div>
+
+        <div class="sector-buttons-grid">
+          <button onclick="selectSector('metropole')" id="sec-metropole" class="sector-btn active">
+            <h4>Montpellier & Métropole</h4>
+            <p>Zone Cœur (Intervention 30 min)</p>
+          </button>
+          
+          <button onclick="selectSector('littoral')" id="sec-littoral" class="sector-btn">
+            <h4>Le Littoral</h4>
+            <p>Sète, Frontignan, Mauguio...</p>
+          </button>
+
+          <button onclick="selectSector('est')" id="sec-est" class="sector-btn">
+            <h4>Est & Gard limitrophe</h4>
+            <p>Lunel, Sommières, Nîmes...</p>
+          </button>
+
+          <button onclick="selectSector('ouest')" id="sec-ouest" class="sector-btn">
+            <h4>Ouest & Arrière-pays</h4>
+            <p>Béziers, Pézenas, Lodève...</p>
+          </button>
+        </div>
+
+        <!-- Sector Results area -->
+        <div class="sector-details-box">
+          <div id="sectorResult" class="sector-details-wrapper">
+            <!-- Dynamic sector content injected by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Descriptive Information Column -->
+      <div class="sector-content">
+        <span class="badge badge-accent">Mobilité & Réactivité</span>
+        <h2>Une couverture géographique complète de l'Hérault</h2>
+        <p>Jean s'est structuré pour intervenir efficacement dans l'ensemble des communes situées dans un rayon de <strong>60 km autour de Montpellier</strong>.</p>
+        <p>Nous disposons d'itinéraires optimisés pour éviter les goulets d'étranglement de la métropole montpelliéraine et arriver rapidement à votre domicile ou à vos bureaux, que ce soit à Sète, Lunel ou en direction de Nîmes et Béziers.</p>
+
+        <div class="sector-infocard">
+          <div class="sector-infocard-icon">🕒</div>
+          <div class="sector-infocard-txt">
+            <h4>Prise en charge de vos chantiers extérieurs</h4>
+            <p>Aucune majoration de déplacement pour les devis d'installation prévus sur rendez-vous dans notre rayon d'action de 60 km.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="avis" class="spectra-section" style="background-color: var(--bg-white);">
+    <div class="spectra-container">
+      <div class="section-header">
+        <span class="badge badge-primary">Retours d'expérience</span>
+        <h2>Ils font confiance à electro34</h2>
+        <p>Découvrez les témoignages authentiques de clients héraultais et gardois.</p>
+      </div>
+
+      <!-- Testimonials Filters -->
+      <div class="filter-btn-grid">
+        <button onclick="filterReviews('all')" id="btn-review-all" class="filter-btn active">Tous les avis</button>
+        <button onclick="filterReviews('depannage')" id="btn-review-depannage" class="filter-btn">⚡ Dépannages</button>
+        <button onclick="filterReviews('tableau')" id="btn-review-tableau" class="filter-btn">🎛️ Tableaux</button>
+        <button onclick="filterReviews('mise-normes')" id="btn-review-mise-normes" class="filter-btn">🛡️ Rénovations / Normes</button>
+      </div>
+
+      <!-- Testimonials Grid -->
+      <div class="reviews-container" id="reviewsContainer">
+        <!-- Review 1 -->
+        <div class="review-card" data-type="depannage">
+          <div class="review-card-header">
+            <span class="review-location">Montpellier - Port Marianne</span>
+            <span class="review-type-badge depannage">⚡ Dépannage</span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote>"Panne de courant totale un samedi soir à 21h. Jean est arrivé très rapidement. Diagnostic hyper rapide (un court-circuit lié au climatiseur) et réparation soignée. Vraiment professionnel !"</blockquote>
+          <div class="review-client">
+            <div class="client-avatar">MB</div>
+            <div class="client-info">
+              <h5>Marc B.</h5>
+              <p>Client particulier</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card" data-type="tableau">
+          <div class="review-card-header">
+            <span class="review-location">Lattes</span>
+            <span class="review-type-badge tableau">🎛️ Tableau</span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote>"J'ai fait changer mon vieux fusible ou disjoncteur défaillant par un tableau moderne Schneider. Le travail de Jean est exceptionnel de propreté. Tout est parfaitement étiqueté."</blockquote>
+          <div class="review-client">
+            <div class="client-avatar">SD</div>
+            <div class="client-info">
+              <h5>Sandrine D.</h5>
+              <p>Propriétaire studio</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card" data-type="mise-normes">
+          <div class="review-card-header">
+            <span class="review-location">Sète</span>
+            <span class="review-type-badge normes">🛡️ Rénovation</span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote>"Rénovation complète de notre appartement sur les canaux de Sète. Jean a géré toute la mise en conformité NF C 15-100. Passage du Consuel sans aucun accroc. Devis respecté et explications limpides."</blockquote>
+          <div class="review-client">
+            <div class="client-avatar">PL</div>
+            <div class="client-info">
+              <h5>Pierre-Louis R.</h5>
+              <p>Client particulier</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="review-card" data-type="depannage">
+          <div class="review-card-header">
+            <span class="review-location">Lunel</span>
+            <span class="review-type-badge depannage">⚡ Dépannage</span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote>"Dysfonctionnement suspect sur un fusible ou disjoncteur dans notre boutique. Intervention ultra-rapide de Jean en pleine journée, ce qui nous a permis d'éviter la fermeture du commerce. Un vrai pro !"</blockquote>
+          <div class="review-client">
+            <div class="client-avatar">CH</div>
+            <div class="client-info">
+              <h5>Claire H.</h5>
+              <p>Boutique de créateurs</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="review-card" data-type="tableau">
+          <div class="review-card-header">
+            <span class="review-location">Nîmes</span>
+            <span class="review-type-badge tableau">🎛️ Tableau</span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote>"Excellent travail de câblage et réfection du tableau électrique dans notre cabinet. Malgré la distance de Montpellier, Jean s'est déplacé ponctuellement et à un prix très compétitif."</blockquote>
+          <div class="review-client">
+            <div class="client-avatar">AL</div>
+            <div class="client-info">
+              <h5>Dr. Antoine L.</h5>
+              <p>Professionnel libéral</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 6 -->
+        <div class="review-card" data-type="mise-normes">
+          <div class="review-card-header">
+            <span class="review-location">Castelnau-le-Lez</span>
+            <span class="review-type-badge normes">🛡️ Rénovation</span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote>"Création de circuits dédiés avec fusible ou disjoncteur individuel sous goulottes pour nos bureaux professionnels. Jean a été de très bon conseil sur le choix des éclairages LED."</blockquote>
+          <div class="review-client">
+            <div class="client-avatar">VT</div>
+            <div class="client-info">
+              <h5>Valérie T.</h5>
+              <p>Gérante d'agence</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner Section -->
+  <section class="cta-banner">
+    <div class="spectra-container">
+      <h2>Une urgence ou un projet d'électricité ?</h2>
+      <p>Parlez-en directement à Jean par téléphone pour obtenir des conseils, un tarif indicatif ou planifier une intervention sous 2h.</p>
+      
+      <div class="cta-actions">
+        <a href="tel:+33610111213" class="cta-phone-btn">
+          📞 06 10 11 12 13
+        </a>
+        <span class="subtext">Aucun engagement requis • Devis gratuit sous 24h</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion section -->
+  <section id="faq" class="spectra-section">
+    <div class="spectra-container">
+      <div class="section-header">
+        <span class="badge badge-primary">Une question ?</span>
+        <h2>Foire Aux Questions</h2>
+        <p>Toutes les réponses à vos interrogations sur mes interventions autour de Montpellier.</p>
+      </div>
+
+      <div class="faq-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button onclick="toggleFaq(1)" class="faq-trigger">
+            <span>Intervenez-vous vraiment jusqu'à 60 km de Montpellier ?</span>
+            <span id="faq-icon-1" class="faq-icon">+</span>
+          </button>
+          <div id="faq-body-1" class="faq-content">
+            <p>Oui, tout à fait. Notre rayon d'action de 60 km autour de Montpellier nous permet de couvrir des localités telles que Sète, Lunel, Clermont-l'Hérault, Pézenas, Béziers, Sommières et même l'ouest du département du Gard (Nîmes limitrophe).</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button onclick="toggleFaq(2)" class="faq-trigger">
+            <span>Quels sont vos délais d'intervention en cas d'urgence ?</span>
+            <span id="faq-icon-2" class="faq-icon">+</span>
+          </button>
+          <div id="faq-body-2" class="faq-content">
+            <p>Pour Montpellier et sa métropole proche, j'interviens généralement en <strong>30 à 45 minutes</strong>. Pour les zones périphériques (jusqu'à 60 km), notre délai d'intervention d'urgence varie entre <strong>45 et 60 minutes</strong>, sous réserve des conditions de circulation.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button onclick="toggleFaq(3)" class="faq-trigger">
+            <span>Les devis de travaux d'électricité sont-ils gratuits ?</span>
+            <span id="faq-icon-3" class="faq-icon">+</span>
+          </button>
+          <div id="faq-body-3" class="faq-content">
+            <p>Oui. Tous les devis, qu'ils soient faits en ligne ou à la suite d'une visite à domicile, sont <strong>100% gratuits et sans engagement</strong>. Conformément aux règles de l'artisanat, aucun travail ne commence avant d'avoir reçu votre accord écrit.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button onclick="toggleFaq(4)" class="faq-trigger">
+            <span>Proposez-vous une assurance décennale ?</span>
+            <span id="faq-icon-4" class="faq-icon">+</span>
+          </button>
+          <div id="faq-body-4" class="faq-content">
+            <p>Absolument. Tous mes travaux d'électricité générale, de rénovation lourde ou de raccordement de tableau sont couverts par ma <strong>Garantie Décennale AXA Assurances</strong>, vous protégeant intégralement sur le long terme.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="spectra-container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div class="footer-col">
+          <div class="footer-logo">
+            <div class="logo-badge">e34</div>
+            <span>electro34</span>
+          </div>
+          <p>Artisan électricien indépendant agréé, Jean intervient auprès des particuliers et des professionnels héraultais.</p>
+        </div>
+
+        <!-- Col 2 -->
+        <div class="footer-col">
+          <h4>Contact & Horaires</h4>
+          <ul class="footer-list">
+            <li>📞 <a href="tel:+33610111213" style="color: var(--bg-white);">06 10 11 12 13</a></li>
+            <li>📍 Montpellier et rayon de 60 km, France</li>
+            <li>🕒 Lun - Sam : 8h - 19h (Urgences 7j/7 - 24h/24)</li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div class="footer-col">
+          <h4>Garanties de l'Artisan</h4>
+          <ul class="footer-list">
+            <li>🛡️ Assurance Décennale (AXA N°908764)</li>
+            <li>✅ Travaux certifiés conformes NF C 15-100</li>
+            <li>💼 Inscrit à la Chambre de Métiers de l'Hérault</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 electro34 Montpellier. Tous droits réservés.</p>
+        <span>Artisan électricien d'Occitanie</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Floating Call Button -->
+  <a href="tel:+33610111213" class="mobile-float-cta pulse-green" aria-label="Appeler Jean immédiatement">
+    📞
+  </a>
+
+  <script>
+    // Menu mobile toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const burgerIcon = document.getElementById('burgerIcon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      if (mobileMenu.classList.contains('open')) {
+        burgerIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+      } else {
+        burgerIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      }
+    });
+
+    // Fermeture du menu mobile lors du clic sur un lien d'ancrage
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        burgerIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      });
+    });
+
+    // 1. Assistant de Diagnostic de Panne
+    let currentDiagKey = '';
+    let currentDiagTitle = '';
+
+    // Déclencher le diagnostic initial par défaut
+    selectDiag('blackout');
+
+    function selectDiag(diagKey) {
+      document.querySelectorAll('.diag-option').forEach(el => {
+        el.classList.remove('active');
+      });
+
+      const selectedBtn = document.getElementById(`diag-${diagKey}`);
+      selectedBtn.classList.add('active');
+
+      currentDiagKey = diagKey;
+      currentDiagTitle = selectedBtn.querySelector('h4').innerText;
+
+      const instructionsContainer = document.getElementById('diagInstructions');
+      
+      let htmlContent = '';
+      switch(diagKey) {
+        case 'blackout':
+          htmlContent = `
+            <h3>🔌 Coupure de Courant Générale</h3>
+            <p>Plus rien ne s'allume chez vous. Suivez ces étapes de secours :</p>
+            <ol class="diag-list">
+              <li>Regardez par la fenêtre ou demandez à un voisin si le quartier est également impacté.</li>
+              <li>Vérifiez votre disjoncteur général d'abonné (le gros bloc noir ou blanc). S'il est sur <strong>OFF (0)</strong>, tentez de le remonter.</li>
+              <li>Si le système saute ou repasse directement sur <strong>OFF</strong>, n'insistez pas. Cela indique un court-circuit interne important.</li>
+            </ol>
+            <div class="diag-footer-note">
+              💡 Note : Jean dispose d'équipements de mesure certifiés pour détecter l'origine exacte du défaut sur votre ligne.
+            </div>
+          `;
+          break;
+        case 'breaker':
+          htmlContent = `
+            <h3>🎛️ Fusible ou Disjoncteur Récurrent</h3>
+            <p>Votre tableau électrique se coupe de manière intempestive ou régulière :</p>
+            <ol class="diag-list">
+              <li>Repérez quelle ligne de fusible ou disjoncteur différentiel est descendue (position OFF).</li>
+              <li>Abaissez tous les modules de cette rangée, puis remontez le disjoncteur général.</li>
+              <li>Remontez les disjoncteurs un par un. Celui qui coupe à nouveau instantanément l'alimentation générale indique la ligne en faute.</li>
+              <li>Débranchez l'appareil raccordé à cette ligne (four, chauffe-eau, machine, multiprise).</li>
+            </ol>
+            <div class="diag-footer-note urgent">
+              ⚠️ Alerte : Ne forcez jamais un fusible ou disjoncteur en position haute s'il refuse de tenir sous tension. Risque de surchauffe.
+            </div>
+          `;
+          break;
+        case 'outlet':
+          htmlContent = `
+            <h3>⚡ Prise ou Interrupteur Défectueux</h3>
+            <p>Une prise murale ou un interrupteur présente une défaillance physique ou électrique :</p>
+            <ol class="diag-list">
+              <li>N'introduisez jamais d'outils métalliques ou d'éléments conducteurs à l'intérieur.</li>
+              <li>Débranchez immédiatement l'équipement raccordé à ce support.</li>
+              <li>Si la boîte d'encastrement bouge ou est arrachée, coupez le fusible ou disjoncteur dédié au tableau pour sécuriser la zone.</li>
+            </ol>
+            <div class="diag-footer-note">
+              💡 Note : Jean remplace vos vieux appareillages vétustes par des équipements sécurisés Legrand ou Schneider conformes.
+            </div>
+          `;
+          break;
+        case 'danger':
+          htmlContent = `
+            <h3 style="color: #fca5a5;">🔥 Danger Critique : Odeur ou Étincelles</h3>
+            <p>Urgence absolue ! Présence d'étincelles ou d'une forte odeur d'échauffement de plastique brûlé :</p>
+            <ol class="diag-list">
+              <li style="font-weight: 700;">Allez immédiatement à votre tableau de protection et coupez le Disjoncteur Général d'abonné (Position OFF).</li>
+              <li>N'utilisez jamais d'eau à proximité des installations ou d'un fusible ou disjoncteur suspect.</li>
+              <li>Évacuez les lieux si une fumée ou un échauffement persiste malgré la coupure générale.</li>
+              <li>Appelez d'urgence notre permanence pour une levée de doute thermique.</li>
+            </ol>
+            <div class="diag-footer-note urgent animate-pulse" style="font-weight: bold;">
+              🚨 Risque imminent de départ de feu électrique ! Notre permanence se mobilise en priorité absolue dans le rayon des 60 km.
+            </div>
+          `;
+          break;
+      }
+      instructionsContainer.innerHTML = htmlContent;
+    }
+
+    function prefillContactWithDiag() {
+      const besoinField = document.getElementById('besoinField');
+      besoinField.value = `Demande d'intervention suite au diagnostic d'urgence.\nSymptôme : ${currentDiagTitle}.\n\nPrécisez ici les détails de la panne ou de votre besoin : `;
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 2. Cartographie Interactive des Secteurs (Rayon 60 km)
+    const sectorsData = {
+      metropole: {
+        title: "Montpellier & Métropole Proche",
+        time: "Délai d'intervention estimé : 30 minutes",
+        cities: ["Montpellier Centre", "Castelnau-le-Lez", "Lattes", "Pérols", "Juvignac", "Saint-Jean-de-Védas", "Grabels", "Villeneuve-lès-Maguelone", "Clapiers", "Le Crès"],
+        info: "Notre zone d'intervention directe en scooter ou utilitaire rapide. Tarifs de déplacement standards."
+      },
+      littoral: {
+        title: "Le Littoral & Bassin de Thau",
+        time: "Délai d'intervention estimé : 45 minutes",
+        cities: ["Sète", "Balaruc-les-Bains", "Frontignan", "Mèze", "Palavas-les-Flots", "La Grande-Motte", "Carnon / Mauguio", "Marseillan"],
+        info: "Déplacement côtier régulier. Intervention rapide pour appartements de vacances, commerces et résidences principales."
+      },
+      est: {
+        title: "Secteur Est Hérault & Gardois",
+        time: "Délai d'intervention estimé : 50 minutes",
+        cities: ["Lunel", "Castries", "Marsillargues", "Sommières", "Vauvert", "Nîmes (périphérie)", "Aigues-Mortes", "Saint-Gilles"],
+        info: "Zone de couverture active en limite de département. Nos équipes interviennent pour le dépannage ou l'installation."
+      },
+      ouest: {
+        title: "Secteur Ouest & Cœur d'Hérault",
+        time: "Délai d'intervention estimé : 60 minutes",
+        cities: ["Béziers", "Pézenas", "Clermont-l'Hérault", "Gignac", "Lodève", "Agde", "Florensac", "Montagnac"],
+        info: "Intervention jusqu'aux limites ouest de notre rayon d'action de 60 km pour dépanner votre réseau électrique."
+      }
+    };
+
+    selectSector('metropole'); // Init par défaut
+
+    function selectSector(sectorKey) {
+      document.querySelectorAll('.sector-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      document.getElementById(`sec-${sectorKey}`).classList.add('active');
+
+      const data = sectorsData[sectorKey];
+      const resultContainer = document.getElementById('sectorResult');
+
+      let citiesBadges = data.cities.map(city => `
+        <span class="city-tag">${city}</span>
+      `).join('');
+
+      resultContainer.innerHTML = `
+        <div class="sector-details-wrapper">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <h4>${data.title}</h4>
+            <span class="status-badge">🟢 Disponible 7j/7</span>
+          </div>
+          <p class="time-indicator">⏱️ ${data.time}</p>
+          <p class="sector-desc">${data.info}</p>
+          <div style="margin-top: 16px; border-top: 1px solid var(--border-color); padding-top: 16px;">
+            <h5 class="cities-title">Communes desservies en priorité :</h5>
+            <div class="cities-tags-flex">
+              ${citiesBadges}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 3. Filtre des Avis Clients
+    function filterReviews(category) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      const activeBtn = document.getElementById(`btn-review-${category}`);
+      activeBtn.classList.add('active');
+
+      document.querySelectorAll('.review-card').forEach(card => {
+        if (category === 'all') {
+          card.classList.remove('hidden');
+        } else {
+          if (card.getAttribute('data-type') === category) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        }
+      });
+    }
+
+    // 4. Accordéon FAQ
+    function toggleFaq(index) {
+      const activeItem = document.getElementById(`faq-body-${index}`).parentElement;
+      const isOpen = activeItem.classList.contains('active');
+      
+      // Fermer tous les éléments d'accordéon
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+        item.querySelector('.faq-icon').innerText = "+";
+      });
+
+      if (!isOpen) {
+        activeItem.classList.add('active');
+        activeItem.querySelector('.faq-icon').innerText = "−";
+      }
+    }
+
+    // 5. Soumission asynchrone du formulaire de contact
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      
+      // Sécurité anti-bots
+      if (document.getElementById('hp_website').value !== '') {
+        return; 
+      }
+
+      // Transition d'état visuelle (simule une soumission AJAX propre)
+      document.getElementById('contactFormWrapper').style.display = 'none';
+      document.getElementById('successMessage').style.display = 'block';
+    }
+
+    function resetContactForm() {
+      document.getElementById('contactForm').reset();
+      document.getElementById('successMessage').style.display = 'none';
+      document.getElementById('contactFormWrapper').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
